@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  whoami-app:
+    # 使用 traefik/whoami 這個現成的 Docker 映像檔
+    image: "traefik/whoami"
+
+    # 給這個運行的容器取一個好記的名字
+    container_name: "my-first-git-app"
+
+    # 設定連接埠映射：
+    # 將你電腦的 8000 連接埠，對應到容器內部的 80 連接埠
+    ports:
+      - "9999:80"
+    
+    # 設置重啟策略：除非手動停止，否則容器會一直嘗試保持運行
+    restart: unless-stopped
